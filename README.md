@@ -8,4 +8,7 @@ to do list:
 - [ ] quit button
 - [ ] background color for drawing canvas
 - [ ] buttons for tools
-- [ ] color tool
+- [ ] color picker tool
+- [ ] erase all tool
+- [ ] thickness picker
+- [ ] fill color space tool

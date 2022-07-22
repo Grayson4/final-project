@@ -7,5 +7,5 @@ to do list:
 - [ ] eraser tool
 - [ ] quit button
 - [ ] background color for drawing canvas
-- [ ] button for tools
-- [ ] 
+- [ ] buttons for tools
+- [ ] color tool

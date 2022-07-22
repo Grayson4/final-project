@@ -8,7 +8,8 @@ import ddf.minim.ugens.*;
 
 
 //Global Variables
-float drawingSurfaceX, drawingSurfaceY, drawingSurfaceWIdth, drawingSurfaceHeight, darwingDiameter;
+float drawingSurfaceX, drawingSurfaceY, drawingSurfaceWidth, drawingSurfaceHeight, darwingDiameter;
+Boolean draw=false;
 //
 void setup() {
  //Display Checker
@@ -19,18 +20,29 @@ void setup() {
  //Population
  drawingSurfaceX = width*0;
  drawingSurfaceY = height*0;
- drawingSurfaceWIdth = width*3/4;
+ drawingSurfaceWidth = width*3/4;
  drawingSurfaceHeight = height*4/5;
  darwingDiameter = width*1/100;
  //
- rect(drawingSurfaceX, drawingSurfaceY, drawingSurfaceWIdth, drawingSurfaceHeight);
+ rect(drawingSurfaceX, drawingSurfaceY, drawingSurfaceWidth, drawingSurfaceHeight);
  //
 }//End setup
 //
 void draw() {
- ellipse(mouseX, mouseY, darwingDiameter, darwingDiameter); //Example Circle Drawing Tool
+  //ellipse(mouseX, mouseY, darwingDiameter, darwingDiameter); //Example Circle Drawing Tool
+ if ( draw==true && mouseX>drawingSurfaceX && mouseX<drawingSurfaceX+drawingSurfaceWidth && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY); 
 }//End draw
 //
 void keyPressed() {}//End keyPressed
 //
-void mousePressed() {}//End mousePressed
+void mousePressed() {
+ if ( mouseX>drawingSurfaceX && mouseX<drawingSurfaceX+drawingSurfaceWidth && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight ) {
+   if (draw==true) {
+     draw=false;
+   } else {
+      draw=true;
+   }
+ }
+}//End mousePressed
+//
+//End MAIN Program

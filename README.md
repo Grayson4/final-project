@@ -12,3 +12,4 @@ to do list:
 - [ ] erase all tool
 - [ ] thickness picker
 - [ ] fill color space tool
+- [ ] portiat to landscape

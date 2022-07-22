@@ -11,4 +11,5 @@ to do list:
 - [ ] color picker tool
 - [ ] erase all tool
 - [ ] thickness picker
-- [ ] fill color space tool
+- [ ] <del>pfill color space tool<del>
+- [ ] portiat to landscape to square

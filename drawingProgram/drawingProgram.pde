@@ -47,9 +47,9 @@ void draw() {
   //
   //Hover Over
   if ( mouseX>quitButtonX && mouseX<quitButtonX+quitButtonWidth && mouseY>quitButtonY && mouseY<quitButtonY+quitButtonHeight ) {
-    buttonFill = white;
-  } else {
     buttonFill = red;
+  } else {
+    buttonFill = white;
   }//Ende HoverOver 
   //
   fill(black);

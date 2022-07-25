@@ -10,6 +10,13 @@ import ddf.minim.ugens.*;
 //Global Variables
 float drawingSurfaceX, drawingSurfaceY, drawingSurfaceWidth, drawingSurfaceHeight, darwingDiameter;
 float quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight;
+float menuX, menuY, menuWidth, menuHeight;
+float toolsButtonX, toolsButtonY, toolsButtonWidth, toolsButtonHeight;
+float colorButtonX, coloButtonrY, colorButtonWidth, colorButtonHeight;
+float backgroundButtonX, backgroundButtonY, backgroundButtonWidth, backgroundButtonHeight;
+float thicnessButtonX, thicnessButtonY, thicnesButtonsWidth, thicnessButtonHeight;
+float changeCanvasButtonX, changeCanvasButtonY, changeCanvasButtonWidth, changeCanvasButtonHeight;
+//
 Boolean draw=false;
 color black=#000000, white=#FFFFFF, red=#FF2E2E, buttonFill;
 //
@@ -32,6 +39,30 @@ void setup() {
   quitButtonY = height*1/30;
   quitButtonWidth = width*1/16;
   quitButtonHeight = height*1/20;
+  menuX = width*9/10;
+  menuY = height*1/10;
+  menuWidth = width*1/10;
+  menuHeight = height*4/5;
+  toolsButtonX = width*9/10;
+  toolsButtonY =height*1/10 ;
+  toolsButtonWidth = width*1/10;
+  toolsButtonHeight = menuHeight*1/5;
+  colorButtonX = width*9/10;
+  coloButtonrY = menuY-1/5;
+  colorButtonWidth = width*1/10;
+  colorButtonHeight = menuHeight*1/5;
+  backgroundButtonX = width*9/10;
+  backgroundButtonY = menuY-2/5;
+  backgroundButtonWidth = width*1/10;
+  backgroundButtonHeight = menuHeight*1/5;
+  thicnessButtonX = width*9/10;
+  thicnessButtonY = menuY-3/5;
+  thicnesButtonsWidth = width*1/10;
+  thicnessButtonHeight =  menuHeight*1/5;
+  changeCanvasButtonX = width*9/10;
+  changeCanvasButtonY = menuY-4/5;
+  changeCanvasButtonWidth = width*1/10;
+  changeCanvasButtonHeight = menuHeight*1/5;
   //
   rect(drawingSurfaceX, drawingSurfaceY, drawingSurfaceWidth, drawingSurfaceHeight);
   //
@@ -45,6 +76,12 @@ void draw() {
   //ellipse(mouseX, mouseY, darwingDiameter, darwingDiameter); //Example Circle Drawing Tool
   if ( draw==true && mouseX>drawingSurfaceX && mouseX<drawingSurfaceX+drawingSurfaceWidth && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY); 
   //
+  rect(menuX, menuY, menuWidth, menuHeight);
+  rect(toolsButtonX, toolsButtonY, toolsButtonWidth, toolsButtonHeight);
+  rect(colorButtonX, coloButtonrY, colorButtonWidth, colorButtonHeight);
+  rect(backgroundButtonX, backgroundButtonY, backgroundButtonWidth, backgroundButtonHeight);
+  rect(thicnessButtonX, thicnessButtonY, thicnesButtonsWidth, thicnessButtonHeight);
+  rect(changeCanvasButtonX, changeCanvasButtonY, changeCanvasButtonWidth, changeCanvasButtonHeight );
   //Hover Over
   if ( mouseX>quitButtonX && mouseX<quitButtonX+quitButtonWidth && mouseY>quitButtonY && mouseY<quitButtonY+quitButtonHeight ) {
     buttonFill = red;

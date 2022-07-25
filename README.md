@@ -5,7 +5,7 @@ to do list:
 - [ ] line drawing tool 
 - [ ] stamp tool
 - [ ] eraser tool
-- [ ] quit button
+- [x] quit button
 - [ ] background color for drawing canvas
 - [ ] buttons for tools
 - [ ] color picker tool

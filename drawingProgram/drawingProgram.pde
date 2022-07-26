@@ -48,19 +48,19 @@ void setup() {
   toolsButtonWidth = width*1/10;
   toolsButtonHeight = menuHeight*1/5;
   colorButtonX = width*9/10;
-  coloButtonrY = menuY-1/5;
+  coloButtonrY = height*2.65/10;
   colorButtonWidth = width*1/10;
   colorButtonHeight = menuHeight*1/5;
   backgroundButtonX = width*9/10;
-  backgroundButtonY = menuY-2/5;
+  backgroundButtonY =  height*4.3/10;
   backgroundButtonWidth = width*1/10;
   backgroundButtonHeight = menuHeight*1/5;
   thicnessButtonX = width*9/10;
-  thicnessButtonY = menuY-3/5;
+  thicnessButtonY = height*5.9/10;
   thicnesButtonsWidth = width*1/10;
   thicnessButtonHeight =  menuHeight*1/5;
   changeCanvasButtonX = width*9/10;
-  changeCanvasButtonY = menuY-4/5;
+  changeCanvasButtonY = height*7.5/10;
   changeCanvasButtonWidth = width*1/10;
   changeCanvasButtonHeight = menuHeight*1/5;
   //

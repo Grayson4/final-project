@@ -190,12 +190,12 @@ void mousePressed() {
   }
   //
   if (mouseX>colorButtonX && mouseX<colorButtonX+colorButtonWidth && mouseY>coloButtonrY && mouseY<coloButtonrY+colorButtonHeight) {
-  if (rectON=true) {
-    rectON=false;
-  } else {
+  if (rectON=false) {
     rectON=true;
+  } else {
+    rectON=false;
   }
-  }//End color button
+}//End color button
 }//End mousePressed
 //
 //End MAIN Program

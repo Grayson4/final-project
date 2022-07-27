@@ -28,12 +28,17 @@ float whiteColorX, whiteColorY, whiteColorWidth, whiteColorHeight;
 float brownColorX, brownColorY, brownColorWidth, brownColorHeight;
 float lightBrownColorX, lightBrownColorY, lightBrownColorWidth, lightBrownColorHeight;
 float pinkColorX, pinkColorY, pinkColorWidth, pinkColorHeight;
+float thinButtonX, thinButtonY, thinButtonWhidth, thinButtonHeight;
+float midButtonX, midButtonY, midButtonWidth, midButtonHeight;
+float thickButtonX, thickButtonY, thickButtonWidth, thickButtonHeight;
 //
-Boolean draw=false, rectON=false;
+color lineColour;
+Boolean draw=false, rectON=false, rectON1=false;
 color black=#000000, white=#FFFFFF, red=#FF5D5D, buttonFill, blue=#A7E4FF, redColour=#FC0505, orange=#FF7308, yellow=#FEFF00, green=#03FF00, blueColour=#0041FF, purple=#C700FF, gray=#B4B2B4, brown=#964B00, lightBrown=#BF7E41, pink=#FFA5A5;
 //
-String quitButtonText="Exit", toolsButtonText="Tools", colorButtonText="Colours", backgroundButtonText="Background Colours", thicnessButtonText="Thickness", changeCanvasButtonText="Change Canvas";
+String quitButtonText="Exit", toolsButtonText="Tools", colorButtonText="Colours", backgroundButtonText="Background Colours", thicnessButtonText="Thickness", changeCanvasButtonText="Templats", thinButtonText="Thin", midButtonText="Medium", thicButtonText="Thick";
 PFont buttonFont;
+color lineWeight;
 //
 void setup() {
   //Display Checker
@@ -138,6 +143,21 @@ void setup() {
   pinkColorWidth =  width*1/30;
   pinkColorHeight = height*1/20;
   //
+  thinButtonX = width*7.5/10;
+  thinButtonY = height*5.9/10;
+  thinButtonWhidth = width*1/20;
+  thinButtonHeight = height*1/10;
+  //
+  midButtonX = width*8/10;
+  midButtonY = height*5.9/10;
+  midButtonWidth = width*1/20;
+  midButtonHeight = height*1/10;
+  //
+  thickButtonX = width*8.5/10;
+  thickButtonY = height*5.9/10;
+  thickButtonWidth = width*1/20;
+  thickButtonHeight = height*1/10;
+  //
   rect(drawingSurfaceX, drawingSurfaceY, drawingSurfaceWidth, drawingSurfaceHeight);
   //
   buttonFont = createFont ("Arial", 55);
@@ -156,8 +176,11 @@ void draw() {
   rect(quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
   fill(white);
   //ellipse(mouseX, mouseY, darwingDiameter, darwingDiameter); //Example Circle Drawing Tool
-  stroke(0);
+  stroke(lineColour);
+  strokeWeight(lineWeight);
   if ( mousePressed == true && draw==true && mouseX>drawingSurfaceX && mouseX<drawingSurfaceX+drawingSurfaceWidth && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY); 
+  strokeWeight(1);
+  stroke(0);
   //
   if (mouseX>toolsButtonX && mouseX<toolsButtonX+toolsButtonWidth && mouseY>toolsButtonY && mouseY<toolsButtonY+toolsButtonHeight) {
     buttonFill=blue;
@@ -285,6 +308,29 @@ void draw() {
   fill(pink);
   if ( rectON==true ) rect(pinkColorX, pinkColorY, pinkColorWidth, pinkColorHeight);
   fill(white);
+  //
+  //
+  if ( rectON1==true ) rect(thinButtonX, thinButtonY, thinButtonWhidth, thinButtonHeight);
+  if ( rectON1==true ) rect(midButtonX, midButtonY, midButtonWidth, midButtonHeight);
+  if ( rectON1==true ) rect(thickButtonX, thickButtonY, thickButtonWidth, thickButtonHeight);
+  //
+  fill(black);
+  textAlign(CENTER, CENTER);
+  textFont(buttonFont, 25);
+  if ( rectON1==true ) text(thinButtonText, thinButtonX, thinButtonY, thinButtonWhidth, thinButtonHeight);
+  fill(white);
+  //
+  fill(black);
+  textAlign(CENTER, CENTER);
+  textFont(buttonFont, 25);
+  if ( rectON1==true ) text(midButtonText, midButtonX, midButtonY, midButtonWidth, midButtonHeight);
+  fill(white);
+  //
+  fill(black);
+  textAlign(CENTER, CENTER);
+  textFont(buttonFont, 25);
+  if ( rectON1==true ) text(thicButtonText, thickButtonX, thickButtonY, thickButtonWidth, thickButtonHeight);
+  fill(white);
 }//End draw
 //
 void keyPressed() {
@@ -301,7 +347,24 @@ void mousePressed() {
     rectON=false;
   }*/
 //End color button
-if (mouseX>redColorX && mouseX<redColorX+redColorWidth && mouseY>redColorY && mouseY<redColorY+redColorHeight) stroke(redColour); line(mouseX, mouseY, pmouseX, pmouseY);
+if (mouseX>redColorX && mouseX<redColorX+redColorWidth && mouseY>redColorY && mouseY<redColorY+redColorHeight) lineColour=redColour;
+if (mouseX>orangeColorX && mouseX<orangeColorX+orangeColorWidth && mouseY>orangeColorY && mouseY<orangeColorY+orangeColorHeight) lineColour=orange;
+if (mouseX>yellowColorX && mouseX<yellowColorX+yellowColorWidth && mouseY>yellowColorY && mouseY<yellowColorY+yellowColorHeight) lineColour=yellow;
+if (mouseX>greenColorX && mouseX<greenColorX+greenColorWidth && mouseY>greenColorY && mouseY<greenColorY+greenColorHeight) lineColour=green;
+if (mouseX>blueColorX && mouseX<blueColorX+blueColorWidth && mouseY>blueColorY && mouseY<blueColorY+blueColorHeight) lineColour=blueColour;
+if (mouseX>purpleColorX && mouseX<purpleColorX+purpleColorWidth && mouseY>purpleColorY && mouseY<purpleColorY+purpleColorHeight) lineColour=purple;
+if (mouseX>blackColorX && mouseX<blackColorX+blackColorWidth && mouseY>blackColorY && mouseY<blackColorY+blackColorHeight) lineColour=black;
+if (mouseX>grayColorX && mouseX<grayColorX+grayColorWidth && mouseY>grayColorY && mouseY<grayColorY+grayColorHeight) lineColour=gray;
+if (mouseX>whiteColorX && mouseX<whiteColorX+whiteColorWidth && mouseY>whiteColorY && mouseY<whiteColorY+whiteColorHeight) lineColour=white;
+if (mouseX>brownColorX && mouseX<brownColorX+brownColorWidth && mouseY>brownColorY && mouseY<brownColorY+brownColorHeight) lineColour=brown;
+if (mouseX>lightBrownColorX && mouseX<lightBrownColorX+lightBrownColorWidth && mouseY>lightBrownColorY && mouseY<lightBrownColorY+lightBrownColorHeight) lineColour=lightBrown;
+if (mouseX>pinkColorX && mouseX<pinkColorX+pinkColorWidth && mouseY>pinkColorY && mouseY<pinkColorY+pinkColorHeight) lineColour=pink;
+//
+if (mouseX>thicnessButtonX && mouseX<thicnessButtonX+thicnesButtonsWidth && mouseY>thicnessButtonY && mouseY<thicnessButtonY+thicnessButtonHeight) rectON1=true;
+//
+if (mouseX>thinButtonX && mouseX<thinButtonX+thinButtonWhidth && mouseY>thinButtonY && mouseY<thinButtonY+thinButtonHeight) lineWeight=1;
+if (mouseX>midButtonX && mouseX<midButtonX+midButtonWidth && mouseY>midButtonY && mouseY<midButtonY+midButtonHeight) lineWeight=10;
+if (mouseX>thickButtonX && mouseX<thickButtonX+thickButtonWidth && mouseY>thickButtonY && mouseY<thickButtonY+thickButtonHeight) lineWeight=20;
 }//End mousePressed
 //
 //End MAIN Program

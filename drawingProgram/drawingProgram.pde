@@ -34,6 +34,9 @@ float thickButtonX, thickButtonY, thickButtonWidth, thickButtonHeight;
 float template1X, template1Y, template1Width, template1height;
 float template2X, template2Y, template2Width, template2height;
 float template3X, template3Y, template3Width, template3height;
+float colourCoverX, colourCoverY, colourCoverWidth, colourCoverHeight;
+float thicknessCoverX, thicknessCoverY, thicknessCoverWidth, thicknessCoverHeight;
+float templateCoverX, templateCoverY, templateCoverWidth, templateCoverHeight;
 //
 color lineColour;
 Boolean draw=false, rectON=false, rectON1=false, rectON2=false;
@@ -175,6 +178,21 @@ void setup() {
   template3Y = height*7.5/10;
   template3Width = width*1/20;
   template3height = height*1/10;
+  //
+  colourCoverX =  width*8.67/10 - 5*width*1/30;
+  colourCoverY = height*2.65/10;
+  colourCoverWidth = width*6/30;
+  colourCoverHeight = height*2/20;
+  //
+  thicknessCoverX = width*7.5/10;
+  thicknessCoverY = height*5.9/10;
+  thicknessCoverWidth = width*3/20;
+  thicknessCoverHeight =  height*1/10;
+  //
+  templateCoverX =  width*7.5/10;
+  templateCoverY = height*7.5/10;
+  templateCoverWidth = width*3/20;
+  templateCoverHeight = height*1/10;
   //
   rect(drawingSurfaceX, drawingSurfaceY, drawingSurfaceWidth, drawingSurfaceHeight);
   //
@@ -353,6 +371,10 @@ void draw() {
   if ( rectON2==true ) rect(template1X, template1Y, template1Width, template1height);
   if ( rectON2==true ) rect(template2X, template2Y, template2Width, template2height);
   if ( rectON2==true ) rect(template3X, template3Y, template3Width, template3height);
+  //
+  if ( rectON==false ) rect(colourCoverX, colourCoverY, colourCoverWidth, colourCoverHeight);
+  if ( rectON1==false ) rect(thicknessCoverX, thicknessCoverY, thicknessCoverWidth, thicknessCoverHeight);
+  rect(templateCoverX, templateCoverY, templateCoverWidth, templateCoverHeight);
 }//End draw
 //
 void keyPressed() {
@@ -390,7 +412,7 @@ if (mouseX>midButtonX && mouseX<midButtonX+midButtonWidth && mouseY>midButtonY &
 if (mouseX>thickButtonX && mouseX<thickButtonX+thickButtonWidth && mouseY>thickButtonY && mouseY<thickButtonY+thickButtonHeight) lineWeight=30;
 //changeCanvasButtonX, changeCanvasButtonY, changeCanvasButtonWidth, changeCanvasButtonHeight
 //
-if (mouseX>changeCanvasButtonX && mouseX<changeCanvasButtonX+changeCanvasButtonWidth && mouseY> && mouseY<)
+if (mouseX>changeCanvasButtonX && mouseX<changeCanvasButtonX+changeCanvasButtonWidth && mouseY>changeCanvasButtonY && mouseY<changeCanvasButtonY+changeCanvasButtonHeight) rectON2=true;
 }//End mousePressed
 //
 //End MAIN Program

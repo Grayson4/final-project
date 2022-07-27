@@ -8,8 +8,8 @@ to do list:
 - [x] quit button
 - [ ] background color for drawing canvas
 - [ ] buttons for tools
-- [ ] color picker tool
+- [x] color picker tool
 - [ ] erase all tool
-- [ ] thickness picker
+- [x] thickness picker
 - [ ] <del>pfill color space tool<del>
-- [ ] portiat to landscape to square
+- [ ] <del>portiat to landscape to square<del>

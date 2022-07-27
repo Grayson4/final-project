@@ -31,9 +31,12 @@ float pinkColorX, pinkColorY, pinkColorWidth, pinkColorHeight;
 float thinButtonX, thinButtonY, thinButtonWhidth, thinButtonHeight;
 float midButtonX, midButtonY, midButtonWidth, midButtonHeight;
 float thickButtonX, thickButtonY, thickButtonWidth, thickButtonHeight;
+float template1X, template1Y, template1Width, template1height;
+float template2X, template2Y, template2Width, template2height;
+float template3X, template3Y, template3Width, template3height;
 //
 color lineColour;
-Boolean draw=false, rectON=false, rectON1=false;
+Boolean draw=false, rectON=false, rectON1=false, rectON2=false;
 color black=#000000, white=#FFFFFF, red=#FF5D5D, buttonFill, blue=#A7E4FF, redColour=#FC0505, orange=#FF7308, yellow=#FEFF00, green=#03FF00, blueColour=#0041FF, purple=#C700FF, gray=#B4B2B4, brown=#964B00, lightBrown=#BF7E41, pink=#FFA5A5;
 //
 String quitButtonText="Exit", toolsButtonText="Tools", colorButtonText="Colours", backgroundButtonText="Background Colours", thicnessButtonText="Thickness", changeCanvasButtonText="Templats", thinButtonText="Thin", midButtonText="Medium", thicButtonText="Thick";
@@ -158,6 +161,21 @@ void setup() {
   thickButtonWidth = width*1/20;
   thickButtonHeight = height*1/10;
   //
+  template1X = width*8.5/10;
+  template1Y = height*7.5/10;
+  template1Width = width*1/20;
+  template1height = height*1/10;
+  //
+  template2X =  width*8/10;
+  template2Y = height*7.5/10;
+  template2Width = width*1/20;
+  template2height = height*1/10;
+  //
+  template3X =  width*7.5/10;
+  template3Y = height*7.5/10;
+  template3Width = width*1/20;
+  template3height = height*1/10;
+  //
   rect(drawingSurfaceX, drawingSurfaceY, drawingSurfaceWidth, drawingSurfaceHeight);
   //
   buttonFont = createFont ("Arial", 55);
@@ -175,7 +193,7 @@ void draw() {
   fill(buttonFill);
   rect(quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
   fill(white);
-  //ellipse(mouseX, mouseY, darwingDiameter, darwingDiameter); //Example Circle Drawing Tool
+  //if ( mousePressed == true && draw==true && mouseX>drawingSurfaceX && mouseX<drawingSurfaceX+drawingSurfaceWidth && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight) ellipse(mouseX, mouseY, darwingDiameter, darwingDiameter); //Example Circle Drawing Tool
   stroke(lineColour);
   strokeWeight(lineWeight);
   if ( mousePressed == true && draw==true && mouseX>drawingSurfaceX && mouseX<drawingSurfaceX+drawingSurfaceWidth && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY); 
@@ -331,6 +349,10 @@ void draw() {
   textFont(buttonFont, 25);
   if ( rectON1==true ) text(thicButtonText, thickButtonX, thickButtonY, thickButtonWidth, thickButtonHeight);
   fill(white);
+  //
+  if ( rectON2==true ) rect(template1X, template1Y, template1Width, template1height);
+  if ( rectON2==true ) rect(template2X, template2Y, template2Width, template2height);
+  if ( rectON2==true ) rect(template3X, template3Y, template3Width, template3height);
 }//End draw
 //
 void keyPressed() {
@@ -360,11 +382,15 @@ if (mouseX>brownColorX && mouseX<brownColorX+brownColorWidth && mouseY>brownColo
 if (mouseX>lightBrownColorX && mouseX<lightBrownColorX+lightBrownColorWidth && mouseY>lightBrownColorY && mouseY<lightBrownColorY+lightBrownColorHeight) lineColour=lightBrown;
 if (mouseX>pinkColorX && mouseX<pinkColorX+pinkColorWidth && mouseY>pinkColorY && mouseY<pinkColorY+pinkColorHeight) lineColour=pink;
 //
+//
 if (mouseX>thicnessButtonX && mouseX<thicnessButtonX+thicnesButtonsWidth && mouseY>thicnessButtonY && mouseY<thicnessButtonY+thicnessButtonHeight) rectON1=true;
 //
 if (mouseX>thinButtonX && mouseX<thinButtonX+thinButtonWhidth && mouseY>thinButtonY && mouseY<thinButtonY+thinButtonHeight) lineWeight=1;
-if (mouseX>midButtonX && mouseX<midButtonX+midButtonWidth && mouseY>midButtonY && mouseY<midButtonY+midButtonHeight) lineWeight=10;
-if (mouseX>thickButtonX && mouseX<thickButtonX+thickButtonWidth && mouseY>thickButtonY && mouseY<thickButtonY+thickButtonHeight) lineWeight=20;
+if (mouseX>midButtonX && mouseX<midButtonX+midButtonWidth && mouseY>midButtonY && mouseY<midButtonY+midButtonHeight) lineWeight=15;
+if (mouseX>thickButtonX && mouseX<thickButtonX+thickButtonWidth && mouseY>thickButtonY && mouseY<thickButtonY+thickButtonHeight) lineWeight=30;
+//changeCanvasButtonX, changeCanvasButtonY, changeCanvasButtonWidth, changeCanvasButtonHeight
+//
+if (mouseX>changeCanvasButtonX && mouseX<changeCanvasButtonX+changeCanvasButtonWidth && mouseY> && mouseY<)
 }//End mousePressed
 //
 //End MAIN Program

@@ -39,6 +39,7 @@ float colourCoverX, colourCoverY, colourCoverWidth, colourCoverHeight;
 float thicknessCoverX, thicknessCoverY, thicknessCoverWidth, thicknessCoverHeight;
 float templateCoverX, templateCoverY, templateCoverWidth, templateCoverHeight;
 float backgroundCoverX, backgroundCoverY, backgroundCoverWidth, backgroundCoverHeight;
+float toolsCoverX,toolsCoverY, toolsCoverWidth, toolsCoverHeight;
 float redBackgroundX, redBackgroundY, redBackgroundWidth, redBackgroundHeight;
 float orangeBackgroundX, orangeBackgroundY, orangeBackgroundWidth, orangeBackgroundHeight;
 float yellowBackgroundX, yellowBackgroundY, yellowBackgroundWidth, yellowBackgroundHeight;
@@ -51,14 +52,18 @@ float whiteBackgroundX, whiteBackgroundY, whiteBackgroundWidth, whiteBackgroundH
 float brownBackgroundX, brownBackgroundY, brownBackgroundWidth, brownBackgroundHeight;
 float lightBrownBackgroundX, lightBrownBackgroundY, lightBrownBackgroundWidth, lightBrownBackgroundHeight;
 float pinkBackgroundX, pinkBackgroundY, pinkBackgroundWidth, pinkBackgroundHeight;
+float toolsX, toolsY, toolsWidth,toolsHeight;
+float eraserX, eraserY, eraserWidth, eraserHeight;
+float circelX, circelY, circelWidth, circelHeight;
 //
 color lineColour;
-Boolean draw=false, rectON=false, rectON1=false, rectON2=false, rectON3=false;
+Boolean draw=false, rectON=false, rectON1=false, rectON2=false, rectON3=false, rectON4=false, ellipsON=false;
 color black=#000000, white=#FFFFFF, red=#FF5D5D, buttonFill, blue=#A7E4FF, redColour=#FC0505, orange=#FF7308, yellow=#FEFF00, green=#03FF00, blueColour=#0041FF, purple=#C700FF, gray=#B4B2B4, brown=#964B00, lightBrown=#BF7E41, pink=#FFA5A5;
 //
 String quitButtonText="Exit", toolsButtonText="Tools", colorButtonText="Colours", backgroundButtonText="Background Colours", thicnessButtonText="Thickness", changeCanvasButtonText="Templats", thinButtonText="Thin", midButtonText="Medium", thicButtonText="Thick";
 PFont buttonFont;
 color lineWeight, backgroundColour, backgroundGray=#CECCCC;
+String eraserText="Eraser", toolsText="Line", circelText="Circel Stamp";
 //
 void setup() {
   //Display Geometry
@@ -294,6 +299,26 @@ void setup() {
   pinkBackgroundWidth =  width*1/30;
   pinkBackgroundHeight = height*1/20;
   //
+  toolsX = width*8.5/10;
+  toolsY = height*1/10 ;
+  toolsWidth = width*1/20;
+  toolsHeight = height*1/10;
+  //
+  toolsCoverX = width*7.5/10;
+  toolsCoverY = height*1/10;
+  toolsCoverWidth = width*3/20;
+  toolsCoverHeight =  height*1/10;
+  //
+  eraserX = width*8/10;
+  eraserY = height*1/10;
+  eraserWidth = width*1/20;
+  eraserHeight = height*1/10;
+  //
+  circelX = width*7.5/10;
+  circelY = height*1/10;
+  circelWidth = width*1/20;
+  circelHeight = height*1/10;
+  //
   fill(white);
   rect(drawingSurfaceX, drawingSurfaceY, drawingSurfaceWidth, drawingSurfaceHeight);
   fill(white);
@@ -314,8 +339,11 @@ void draw() {
   //
   fill(buttonFill);
   rect(quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
+  fill(lineColour);
+  strokeWeight(0);
+  if ( ellipsON==true) if ( mousePressed == true && draw==true && mouseX>drawingSurfaceX && mouseX<drawingSurfaceX+drawingSurfaceWidth && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight) ellipse(mouseX, mouseY, darwingDiameter, darwingDiameter); //Example Circle Drawing Tool
+  strokeWeight(0);
   fill(white);
-  //if ( mousePressed == true && draw==true && mouseX>drawingSurfaceX && mouseX<drawingSurfaceX+drawingSurfaceWidth && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight) ellipse(mouseX, mouseY, darwingDiameter, darwingDiameter); //Example Circle Drawing Tool
   stroke(lineColour);
   strokeWeight(lineWeight);
   if ( mousePressed == true && draw==true && mouseX>drawingSurfaceX && mouseX<drawingSurfaceX+drawingSurfaceWidth && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY); 
@@ -454,6 +482,24 @@ void draw() {
   if ( rectON1==true ) rect(midButtonX, midButtonY, midButtonWidth, midButtonHeight);
   if ( rectON1==true ) rect(thickButtonX, thickButtonY, thickButtonWidth, thickButtonHeight);
   //
+    fill(black);
+  textAlign(CENTER, CENTER);
+  textFont(buttonFont, 25);
+  if ( rectON4==true ) text(eraserText, eraserX, eraserY, eraserWidth, eraserHeight);
+  fill(white);
+  //
+  fill(black);
+  textAlign(CENTER, CENTER);
+  textFont(buttonFont, 25);
+  if ( rectON4==true ) text(toolsText, toolsX, toolsY, toolsWidth, toolsHeight);
+  fill(white);
+  //
+    fill(black);
+  textAlign(CENTER, CENTER);
+  textFont(buttonFont, 25);
+  if ( rectON4==true ) text(circelText, circelX, circelY, circelWidth, circelHeight);
+  fill(white);
+  //
   fill(black);
   textAlign(CENTER, CENTER);
   textFont(buttonFont, 25);
@@ -498,6 +544,12 @@ void draw() {
     stroke(backgroundGray);
   fill(backgroundGray);
   if ( rectON3==false ) rect(backgroundCoverX, backgroundCoverY, backgroundCoverWidth, backgroundCoverHeight);
+  fill(white);
+  stroke(0);
+  //
+  stroke(backgroundGray);
+  fill(backgroundGray);
+  if ( rectON4==false ) rect(toolsCoverX,toolsCoverY, toolsCoverWidth, toolsCoverHeight);
   fill(white);
   stroke(0);
   //
@@ -548,6 +600,10 @@ void draw() {
   if ( rectON3==true ) rect(pinkBackgroundX, pinkBackgroundY, pinkBackgroundWidth, pinkBackgroundHeight);
   fill(white);
   //
+  if ( rectON4==true )  rect(toolsX, toolsY, toolsWidth, toolsHeight);
+  if ( rectON4==true )  rect(eraserX, eraserY, eraserWidth, eraserHeight);
+  if ( rectON4==true )  rect(circelX, circelY, circelWidth, circelHeight);
+  //
 }//End draw
 //
 void keyPressed() {
@@ -579,7 +635,7 @@ if (mouseX>lightBrownColorX && mouseX<lightBrownColorX+lightBrownColorWidth && m
 if (mouseX>pinkColorX && mouseX<pinkColorX+pinkColorWidth && mouseY>pinkColorY && mouseY<pinkColorY+pinkColorHeight) lineColour=pink;
 //
 //
-if ( mouseX>=thicnessButtonX && mouseX<=thicnessButtonX+thicnesButtonsWidth && mouseY>=thicnessButtonY && mouseY<=thicnessButtonY+thicnessButtonHeight ) {
+if ( mouseX>thicnessButtonX && mouseX<thicnessButtonX+thicnesButtonsWidth && mouseY>thicnessButtonY && mouseY<thicnessButtonY+thicnessButtonHeight ) {
     if ( rectON1==true ) {
       rectON1=false;
     } else {
@@ -601,7 +657,7 @@ if ( mouseX>=changeCanvasButtonX && mouseX<=changeCanvasButtonX+changeCanvasButt
   }
 //
 //
-if ( mouseX>=backgroundButtonX && mouseX<=backgroundButtonX+backgroundButtonWidth && mouseY>=backgroundButtonY && mouseY<=backgroundButtonY+backgroundButtonHeight ) {
+if ( mouseX>backgroundButtonX && mouseX<backgroundButtonX+backgroundButtonWidth && mouseY>backgroundButtonY && mouseY<backgroundButtonY+backgroundButtonHeight ) {
     if ( rectON3==true ) {
       rectON3=false;
     } else {
@@ -622,5 +678,23 @@ if (mouseX>brownBackgroundX && mouseX<brownBackgroundX+brownBackgroundWidth && m
 if (mouseX>lightBrownBackgroundX && mouseX<lightBrownBackgroundX+lightBrownBackgroundWidth && mouseY>lightBrownBackgroundY && mouseY<lightBrownBackgroundY+lightBrownBackgroundHeight) backgroundColour=lightBrown;
 if (mouseX>pinkBackgroundX && mouseX<pinkBackgroundX+pinkBackgroundWidth && mouseY>pinkBackgroundY && mouseY<pinkBackgroundY+pinkBackgroundHeight) backgroundColour=pink;
 //
+//
+if ( mouseX>toolsButtonX && mouseX<toolsButtonX+toolsButtonWidth && mouseY>toolsButtonY && mouseY<toolsButtonY+toolsButtonHeight ) {
+    if ( rectON4==true ) {
+      rectON4=false;
+    } else {
+      rectON4=true;
+    }
+  }
+if (mouseX>eraserX && mouseX<eraserX+eraserWidth && mouseY>eraserY &&mouseY<eraserY+ eraserHeight) lineColour=white;
+if (mouseX>toolsX && mouseX<toolsX+toolsWidth && mouseY>toolsY && mouseY<toolsY+toolsHeight) lineColour=black;
+if ( mouseX>circelX && mouseX<circelX+circelWidth && mouseY>circelY && mouseY<circelWidth+circelHeight ) {
+    if ( ellipsON==true ) {
+      ellipsON=false;
+    } else {
+      ellipsON=true;
+    }
+  }
+//toolsX, toolsY, toolsWidth, toolsHeight//(circelX, circelY, circelWidth, circelHeight
 }//End mousePressed
 //End MAIN Program
